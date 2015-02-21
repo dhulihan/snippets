@@ -4,15 +4,8 @@ var http = require('http')
 var serveIndex = require('serve-index')
 var serveStatic = require('serve-static')
 
-// Serve up public/ftp folder
-var index = serveIndex(__dirname, {'icons': true})
+var index = serveIndex(__dirname, {'icons': true, 'view': "details"} )
 var serve = serveStatic(__dirname, {'index': ['index.html', 'index.htm']})
-
-// Create server
-//var server = http.createServer(function(req, res){
-//  var done = finalhandler(req, res)
-//  serve(req, res, done)
-//})
 
 var server = http.createServer(function onRequest(req, res){
   var done = finalhandler(req, res)
